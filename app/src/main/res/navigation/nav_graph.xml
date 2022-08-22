@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomeMainFragment">
+
+    <fragment
+        android:id="@+id/HomeMainFragment"
+        android:name="com.ydhnwb.cleanarchitectureexercise.presentation.main.home.HomeMainFragment"
+        android:label="@string/main_fragment_home"
+        tools:layout="@layout/fragment_main_home">
+
+        <action
+            android:id="@+id/action_home_to_detail"
+            app:destination="@id/HomeDetailFragment" />
+
+        <action
+            android:id="@+id/action_home_to_create"
+            app:destination="@id/HomeCreateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/HomeDetailFragment"
+        android:name="com.ydhnwb.cleanarchitectureexercise.presentation.main.detail.DetailMainFragment"
+        android:label="@string/main_fragment_detail"
+        tools:layout="@layout/fragment_main_detail">
+
+        <action
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_update_to_home"
+            app:destination="@id/HomeMainFragment" />
+    </fragment>
+
+    <fragment
+        tools:layout="@layout/fragment_main_create"
+        android:id="@+id/HomeCreateFragment"
+        android:name="com.ydhnwb.cleanarchitectureexercise.presentation.main.create_product.CreateMainFragment"
+        android:label="@string/main_fragment_create">
+
+        <action
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_create_to_home"
+            app:destination="@id/HomeMainFragment" />
+
+    </fragment>
+</navigation>
